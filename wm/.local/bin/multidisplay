@@ -1,0 +1,30 @@
+#!/bin/sh
+
+menu=(
+  "default"
+  "x220-home"
+)
+
+menu_nrows=${#menu[@]}
+
+ if [ "$#" -eq  "0" ]
+   then
+     selection="$(printf '%s\n' "${menu[@]}" | sort | rofi -dmenu -i -lines "${menu_rows}")"
+else
+     selection="$1"
+ fi
+
+case $selection in
+  ${menu[0]})
+    ln -frs $HOME/.config/i3/multidisplay/default.conf $HOME/.config/i3/multidisplay.conf
+    source $HOME/.config/x11/multidisplay/default.sh
+    ;;
+  ${menu[1]})
+    ln -frs $HOME/.config/i3/multidisplay/x220-home.conf $HOME/.config/i3/multidisplay.conf
+    source $HOME/.config/x11/multidisplay/x220-home.sh
+    i3 restart
+    setbg
+    ;;
+  *)
+    exit 1
+esac

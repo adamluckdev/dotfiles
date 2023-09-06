@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+kb="$(setxkbmap -query | grep -oP 'layout:\s*\K\w+')" || exit 1
+echo "$kb"
