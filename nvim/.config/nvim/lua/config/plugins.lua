@@ -56,7 +56,7 @@ require('packer').startup(function(use)
   use {'nvim-lua/popup.nvim'}
   use {'nvim-telescope/telescope.nvim'}
   use {'TimUntersberger/neogit'}
-  use {'dracula/vim'}
+  use { "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" }
 
   if install_plugins then
     require('packer').sync()

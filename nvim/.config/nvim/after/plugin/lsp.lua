@@ -61,7 +61,8 @@ local servers = {
             telemetry = { enable = false },
         },
     },
-    tsserver = {}
+    tsserver = {},
+    rust_analyzer = {}
 }
 
 -- Setup neovim lua configuration
