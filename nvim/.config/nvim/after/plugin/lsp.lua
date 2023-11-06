@@ -92,6 +92,16 @@ mason_lspconfig.setup_handlers {
     end,
 }
 
+-- Phpactor definition outside of mason because of using docker image
+require'lspconfig'.phpactor.setup{
+    cmd = {"phpactor", "language-server"},
+    on_attach = on_attach,
+    init_options = {
+        ["language_server_phpstan.enabled"] = false,
+        ["language_server_psalm.enabled"] = false
+    }
+}
+
 -- Turn on lsp status information
 require('fidget').setup()
 
