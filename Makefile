@@ -5,6 +5,7 @@ de:
 	stow --verbose --no-folding --target=$$HOME --restow alacritty
 	stow --verbose --no-folding --target=$$HOME --restow kitty
 	stow --verbose --no-folding --target=$$HOME --restow tmux
+	stow --verbose --no-folding --target=$$HOME --restow fonts
 wm:
 	$(MAKE) de
 	stow --verbose --no-folding --target=$$HOME --restow wm
