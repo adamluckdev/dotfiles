@@ -9,3 +9,4 @@ Categories=Utility;
 Keywords=compositor;composite manager;window effects;transparency;opacity;
 TryExec=picom
 Exec=picom --dbus
+X-LXQt-Module=true
