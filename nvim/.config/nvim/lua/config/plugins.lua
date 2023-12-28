@@ -57,6 +57,11 @@ require('packer').startup(function(use)
   use {'nvim-telescope/telescope.nvim'}
   use {'TimUntersberger/neogit'}
   use { "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" }
+  use {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    requires = { {"nvim-lua/plenary.nvim"} }
+  }
 
   if install_plugins then
     require('packer').sync()
