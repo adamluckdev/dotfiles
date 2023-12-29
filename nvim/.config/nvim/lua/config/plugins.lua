@@ -56,7 +56,7 @@ require('packer').startup(function(use)
   use {'nvim-lua/popup.nvim'}
   use {'nvim-telescope/telescope.nvim'}
   use {'TimUntersberger/neogit'}
-  use { "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" }
+  use { 'rose-pine/neovim', as = 'rose-pine' }
   use {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",

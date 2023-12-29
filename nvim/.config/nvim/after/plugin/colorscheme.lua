@@ -1,2 +1,7 @@
 vim.opt.termguicolors = true
-vim.cmd('colorscheme darcula-solid')
+
+require('rose-pine').setup({
+    variant = 'moon',
+})
+
+vim.cmd.colorscheme('rose-pine')
