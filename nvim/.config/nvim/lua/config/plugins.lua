@@ -52,9 +52,11 @@ require('packer').startup(function(use)
 
   use {'kyazdani42/nvim-web-devicons'}
   use {'nvim-lualine/lualine.nvim'}
-  use {'nvim-lua/plenary.nvim'}
   use {'nvim-lua/popup.nvim'}
-  use {'nvim-telescope/telescope.nvim'}
+  use {
+    'nvim-telescope/telescope.nvim', branch = '0.1.x',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
   use {'TimUntersberger/neogit'}
   use { 'rose-pine/neovim', as = 'rose-pine' }
   use {
