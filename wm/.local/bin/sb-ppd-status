@@ -7,5 +7,9 @@
 
 # script to show current power profile
 
+case $BLOCK_BUTTON in
+	1) sb-power-profiles ;;
+esac
+
 current_profile=$(/usr/bin/powerprofilesctl get)
-echo "$current_profile"
+echo "󰚥 $current_profile"
