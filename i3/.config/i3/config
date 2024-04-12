@@ -217,11 +217,11 @@ bindsym $mod+a focus parent
 # Multimedia Keys
 
 # volume
-bindsym XF86AudioRaiseVolume exec pamixer --allow-boost -i 5 && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioLowerVolume exec pamixer --allow-boost -d 5 && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && pkill -RTMIN+1 i3blocks
 
 # mute
-bindsym XF86AudioMute exec pamixer -t && killall -USR1 i3blocks
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && killall -USR1 i3blocks
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle && killall -USR1 i3blocks
 
 # audio control
@@ -232,7 +232,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 ## App shortcuts
 bindsym $mod+w exec firefox
-bindsym $mod+n exec pcmanfm
+bindsym $mod+n exec thunar
 bindsym Print exec maimpick && notify-send "Screenshot saved to ~/$(date '+%y%m%d-%H%M-%S').png"
 
 # Power Profiles menu switcher (rofi)
@@ -339,7 +339,7 @@ exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 #exec --no-startup-id blueberry-tray
 
 # networkmanager-applet
-#exec --no-startup-id nm-applet
+exec --no-startup-id nm-applet
 
 ##################
 # floating rules #
@@ -386,12 +386,12 @@ client.background       #F8F8F2
 bar {
 		font pango: Noto Sans Regular 10
 		status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	    	position bottom
+		position bottom
 #	    	i3bar_command i3bar --transparency
 # it could be that you have no primary display set: set one (xrandr --output <output> --primary)
 # reference: https://i3wm.org/docs/userguide.html#_tray_output
-		    tray_output primary
-		    tray_padding 0
+		tray_output HDMI-2
+		tray_padding 0
 
 # When strip_workspace_numbers is set to yes,
 # any workspace that has a name of the form
