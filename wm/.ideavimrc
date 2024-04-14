@@ -1,0 +1,50 @@
+let mapleader=" "
+
+"" Options
+
+set ideajoin
+set incsearch
+set ignorecase
+set clipboard^=unnamedplus
+
+" Make line numbers default
+set number
+set relativenumber
+
+" Stay in the mode in which the editing started
+set idearefactormode=keep
+
+" No annoying sound on errors
+set visualbell
+set tm=500
+
+" Set scrolloff
+set scrolloff=8
+
+" tab
+nmap <Tab> <action>(NextTab)
+nmap <leader>bc <action>(CloseEditor)
+nmap <leader>bf <action>(Switcher)
+nmap <leader>pf <action>(SearchEverywhere)
+
+" plugins
+set surround
+set commentary
+set NERDTree
+nmap <leader>pv :NERDTree<CR>
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapJumpParent='h'
+
+" commentary
+noremap <leader>/ :Commentary<cr>
+set ideajoin
+set incsearch
+set ignorecase
+
+" cod navigation
+nmap <leader>rn <action>(RenameElement)
+nmap <leader>gd <action>(GotoDeclaration)
+nmap <leader>gr <action>(GotoDeclaration)
+nmap <leader>gI <action>(GotoImplementation)
+nmap <leader>K <action>(ShowErrorDescription)
+nmap / <action>(Find)
