@@ -45,6 +45,6 @@ set ignorecase
 nmap <leader>rn <action>(RenameElement)
 nmap <leader>gd <action>(GotoDeclaration)
 nmap <leader>gr <action>(GotoDeclaration)
-nmap <leader>gI <action>(GotoImplementation)
+nmap <leader>gi <action>(GotoImplementation)
 nmap <leader>K <action>(ShowErrorDescription)
 nmap / <action>(Find)
