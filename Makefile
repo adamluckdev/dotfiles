@@ -6,6 +6,7 @@ de:
 	stow --verbose --no-folding --target=$$HOME --restow tmux
 	stow --verbose --no-folding --target=$$HOME --restow fonts
 	stow --verbose --no-folding --target=$$HOME --restow fzf
+	stow --verbose --no-folding --target=$$HOME --restow zellij
 wm:
 	$(MAKE) de
 	stow --verbose --no-folding --target=$$HOME --restow wm
