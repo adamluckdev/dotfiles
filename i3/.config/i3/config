@@ -201,7 +201,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+g layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -230,8 +230,6 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 ## App shortcuts
-bindsym $mod+w exec firefox
-bindsym $mod+n exec thunar
 bindsym Print exec maimpick && notify-send "Screenshot saved to ~/$(date '+%y%m%d-%H%M-%S').png"
 
 # Power Profiles menu switcher (rofi)
@@ -306,7 +304,7 @@ for_window [class="TelegramDesktop"] focus
 exec --no-startup-id dex --autostart --environment i3
 
 # configure multiple keyboard layouts and hotkey to switch (Super+Space in this example)
-exec --no-startup-id setxkbmap -layout 'us,sk' -variant altgr-intl,qwerty -option 'grp:win_space_toggle'
+exec --no-startup-id setxkbmap -layout 'us,sk' -variant altgr-intl,qwerty -option 'grp:win_space_toggle' -option 'caps:escape'
 
 # start a script to setup displays
 # uncomment the next line, use arandr to setup displays and save the file as monitor:
@@ -451,5 +449,5 @@ bindsym $mod+d exec rofi -modi drun -show drun \
 
 ## rofi bindings for window menu
 
-bindsym $mod+t exec rofi -show window \
+bindsym $mod+w exec rofi -show window \
 		-config ~/.config/rofi/rofidmenu.rasi
