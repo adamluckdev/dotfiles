@@ -57,7 +57,6 @@ require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim', branch = '0.1.x',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
-  use {'TimUntersberger/neogit'}
   use { 'rose-pine/neovim', as = 'rose-pine' }
   use {
     "ThePrimeagen/harpoon",
@@ -72,6 +71,16 @@ require('packer').startup(function(use)
           vim.g.mkdp_filetypes = { "markdown" }
       end,
       ft = { "markdown" }
+  }
+  use {
+    "nvim-neo-tree/neo-tree.nvim",
+      branch = "v3.x",
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+        "MunifTanjim/nui.nvim",
+        -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+      }
   }
 
   if install_plugins then
