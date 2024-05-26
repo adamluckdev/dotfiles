@@ -6,10 +6,5 @@
 # used in i3-blocks: ~/.config/i3/i3blocks.conf together with: ~/.config/i3/scripts/power-profiles
 
 # script to show current power profile
-
-case $BLOCK_BUTTON in
-	1) sb-power-profiles ;;
-esac
-
 current_profile=$(/usr/bin/powerprofilesctl get)
 echo "󰚥 $current_profile"

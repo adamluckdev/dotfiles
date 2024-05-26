@@ -6,3 +6,7 @@ require("neo-tree").setup({
         }
     }
 })
+
+vim.keymap.set('n', '<leader>fe', function ()
+    vim.cmd('Neotree toggle')
+end, {})

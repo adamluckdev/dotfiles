@@ -144,9 +144,6 @@ bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+q kill
 
-# exit-menu
-bindsym $mod+Shift+e exec sb-powermenu
-
 # Lock the system
 # lock with a picture:
 #bindsym $mod+l exec i3lock -i  ~/.config/i3/i3-lock-screen.png -p default|win -t
@@ -231,9 +228,6 @@ bindsym XF86AudioPrev exec playerctl previous
 
 ## App shortcuts
 bindsym Print exec maimpick && notify-send "Screenshot saved to ~/$(date '+%y%m%d-%H%M-%S').png"
-
-# Power Profiles menu switcher (rofi)
-bindsym $mod+Shift+p exec sb-power-profiles
 
 ##########################################
 # configuration for workspace behaviour: #
@@ -366,14 +360,43 @@ for_window [class="Pamac-manager"] floating enable
 # color settings for bar and windows #
 ######################################
 
-# define colors for windows:
-client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
-client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
-client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
-client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
-client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+# catppuccin-macchiato
+set $rosewater #f4dbd6
+set $flamingo #f0c6c6
+set $pink #f5bde6
+set $mauve #c6a0f6
+set $red #ed8796
+set $maroon #ee99a0
+set $peach #f5a97f
+set $yellow #eed49f
+set $green #a6da95
+set $teal #8bd5ca
+set $sky #91d7e3
+set $sapphire #7dc4e4
+set $blue #8aadf4
+set $lavender #b7bdf8
+set $text #cad3f5
+set $subtext1 #b8c0e0
+set $subtext0 #a5adcb
+set $overlay2 #939ab7
+set $overlay1 #8087a2
+set $overlay0 #6e738d
+set $surface2 #5b6078
+set $surface1 #494d64
+set $surface0 #363a4f
+set $base #24273a
+set $mantle #1e2030
+set $crust #181926
 
-client.background       #F8F8F2
+# define colors for windows:
+# target                 title     bg    text   indicator  border
+client.focused           $lavender $base $text  $rosewater $lavender
+client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
+client.unfocused         $overlay0 $base $text  $rosewater $overlay0
+client.urgent            $peach    $base $peach $overlay0  $peach
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
+
 ############################################
 # bar settings (input comes from i3blocks) #
 ############################################
@@ -395,15 +418,15 @@ bar {
 # “[n][:][NAME]” will display only the name.
 strip_workspace_numbers yes
 colors {
-    background #282A36
-    statusline #F8F8F2
-    separator  #44475A
-
-    focused_workspace  #44475A #44475A #F8F8F2
-    active_workspace   #282A36 #44475A #F8F8F2
-    inactive_workspace #282A36 #282A36 #BFBFBF
-    urgent_workspace   #FF5555 #FF5555 #F8F8F2
-    binding_mode       #FF5555 #FF5555 #F8F8F2
+    background         $base
+    statusline         $text
+    focused_statusline $text
+    focused_separator  $base
+    focused_workspace  $base $base $green
+    active_workspace   $base $base $blue
+    inactive_workspace $base $base $surface1
+    urgent_workspace   $base $base $surface1
+    binding_mode       $base $base $surface1
   }
 }
 
@@ -444,10 +467,8 @@ colors {
 
 ## rofi bindings fancy application menu
 
-bindsym $mod+d exec rofi -modi drun -show drun \
-		-config ~/.config/rofi/rofidmenu.rasi
+bindsym $mod+d exec rofi -modi drun -show drun
 
 ## rofi bindings for window menu
 
-bindsym $mod+w exec rofi -show window \
-		-config ~/.config/rofi/rofidmenu.rasi
+bindsym $mod+w exec rofi -show window
