@@ -82,6 +82,7 @@ require('packer').startup(function(use)
         -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
       }
   }
+  use { "gpanders/editorconfig.nvim" }
 
   if install_plugins then
     require('packer').sync()
