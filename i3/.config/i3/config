@@ -16,7 +16,7 @@ set $mod Mod4
 #####################
 
 # default i3 tiling mode:
-workspace_layout default
+workspace_layout tabbed
 
 ##############################
 # extra options for windows: #
