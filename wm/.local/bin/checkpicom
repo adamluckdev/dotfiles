@@ -1,0 +1,3 @@
+if ps -A | grep picom; then
+  echo 'som tuuuu'
+fi

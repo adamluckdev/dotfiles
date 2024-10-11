@@ -7,6 +7,8 @@ de:
 	stow --verbose --no-folding --target=$$HOME --restow fonts
 	stow --verbose --no-folding --target=$$HOME --restow fzf
 	stow --verbose --no-folding --target=$$HOME --restow zellij
+	stow --verbose --no-folding --target=$$HOME --restow jetbrains
+	stow --verbose --no-folding --target=$$HOME --restow backgrounds
 wm:
 	$(MAKE) de
 	stow --verbose --no-folding --target=$$HOME --restow wm
