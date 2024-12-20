@@ -9,9 +9,10 @@ layout {
             plugin location="zellij:status-bar"
         }
     }
-    tab name="backend" cwd="/home/adam/Projects"
-    tab name="import" cwd="/home/adam/Projects"
-    tab name="bb" cwd="/home/adam/Projects"
+    tab name="backend" cwd="/home/adam/Projects/istores-backend"
+    tab name="import" cwd="/home/adam/Projects/westech-import"
+    tab name="cms" cwd="/home/adam/Projects/istores-cms"
+    tab name="frontend-sk" cwd="/home/adam/Projects/istores-sk-frontend"
     tab name="db" cwd="/home/adam/Projects"
-    tab name="frontend" cwd="/home/adam/Projects"
+    tab name="tunnels" cwd="/home/adam/Projects/istores-aws-keys"
 }
