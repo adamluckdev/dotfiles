@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if [ $# -eq 1 ]; then
+    selected=$1
+else
+    selected=$(find ~/.config/zellij/layouts -mindepth 1 -printf "%f\n" -type f | fzf)
+fi
+
+if [ -z $selected ]; then
+    exit 0
+fi
+
+selected_name=$(basename "$selected" | cut -d '.' -f 1)
+
+zellij --layout=$selected_name
