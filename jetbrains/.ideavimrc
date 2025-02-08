@@ -21,17 +21,18 @@ set tm=500
 " Set scrolloff
 set scrolloff=8
 
-" tab
+" windows and tabs
 nmap <Tab> <action>(NextTab)
 nmap <leader>bc <action>(CloseEditor)
 nmap <leader>bf <action>(Switcher)
-nmap <leader>pf <action>(SearchEverywhere)
+nmap <leader><space> <action>(SearchEverywhere)
+nmap <leader>hs <action>(HideActiveWindow)
 
 " plugins
 set surround
 set commentary
 set NERDTree
-nmap <leader>pv :NERDTree<CR>
+nmap <leader>pv :NERDTreeToggle<CR>
 let g:NERDTreeMapActivateNode='l'
 let g:NERDTreeMapJumpParent='h'
 
@@ -40,11 +41,16 @@ noremap <leader>/ :Commentary<cr>
 set ideajoin
 set incsearch
 set ignorecase
+NERDTreeToggle
 
-" cod navigation
-nmap <leader>rn <action>(RenameElement)
+" code navigation
+nmap <leader>cr <action>(RenameElement)
+nmap <leader>fu <action>(FindUsages)
 nmap <leader>gd <action>(GotoDeclaration)
 nmap <leader>gr <action>(GotoDeclaration)
 nmap <leader>gi <action>(GotoImplementation)
 nmap <leader>K <action>(ShowErrorDescription)
 nmap / <action>(Find)
+
+" git
+nmap <leader>gg <action>(Vcs.Show.Local.Changes)
