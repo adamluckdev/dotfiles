@@ -45,11 +45,10 @@ NERDTreeToggle
 
 " code navigation
 nmap <leader>cr <action>(RenameElement)
-nmap <leader>fu <action>(FindUsages)
-nmap <leader>gd <action>(GotoDeclaration)
-nmap <leader>gr <action>(GotoDeclaration)
-nmap <leader>gi <action>(GotoImplementation)
-nmap <leader>K <action>(ShowErrorDescription)
+nmap gr <action>(FindUsages)
+nmap gd <action>(GotoDeclaration)
+nmap gr <action>(GotoDeclaration)
+nmap gI <action>(GotoImplementation)
 nmap / <action>(Find)
 
 " git
