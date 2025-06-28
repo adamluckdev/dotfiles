@@ -8,6 +8,7 @@ de:
 	stow --verbose --no-folding --target=$$HOME --restow zellij
 	stow --verbose --no-folding --target=$$HOME --restow jetbrains
 	stow --verbose --no-folding --target=$$HOME --restow backgrounds
+	stow --verbose --no-folding --target=$$HOME --restow git
 wm:
 	$(MAKE) de
 	stow --verbose --no-folding --target=$$HOME --restow wm
