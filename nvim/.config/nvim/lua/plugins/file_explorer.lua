@@ -1,10 +1,11 @@
 return {
-  "nvim-neo-tree/neo-tree.nvim",
+  "folke/snacks.nvim",
   opts = {
-    filesystem = {
-      filtered_items = {
-        visible = true,
+    picker = {
+      sources = {
+        explorer = { hidden = true },
+        files = { hidden = true },
       },
     },
-  },
+  }
 }
