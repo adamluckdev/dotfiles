@@ -15,5 +15,5 @@ layout {
     tab name="cms" cwd="/home/adam/Projects/gitlab_wdev/ecommerce/istores/cms"
     tab name="frontend" cwd="/home/adam/Projects/gitlab_wdev/ecommerce/istores/frontend"
     tab name="db" cwd="/home/adam/Projects/gitlab_wdev/ecommerce/istores/backend"
-    tab name="tunnels" cwd="/home/adam/Projects/istores-aws-keys"
+    tab name="tunnels" cwd="/home/adam/.ssh"
 }
