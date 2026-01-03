@@ -73,4 +73,4 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # fnm
 export PATH="$HOME/.local/share/fnm:$PATH"
-[ -d "$HOME/.local/share/fnm" ] && eval "`fnm env`"
+[ -d "$HOME/.local/share/fnm" ] && eval "$(fnm env --use-on-cd --shell zsh)"
