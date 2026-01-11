@@ -56,6 +56,13 @@ alias \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
 	weath="less -S ${XDG_CACHE_HOME:-$HOME/.cache}/weatherreport" \
 
+# Docker aliases
+alias \
+  dcu="docker compose up" \
+  dcud="docker compose up -d" \
+  dcs="docker compose stop" \
+  dce="docker compose exec"
+
 mkcd () {
   \mkdir -p "$1"
   cd "$1"
