@@ -3,6 +3,7 @@ de:
 	stow --verbose --no-folding --target=$$HOME --restow zsh
 	stow --verbose --no-folding --target=$$HOME --restow nvim
 	stow --verbose --no-folding --target=$$HOME --restow alacritty
+	stow --verbose --no-folding --target=$$HOME --restow ghostty
 	stow --verbose --no-folding --target=$$HOME --restow fonts
 	stow --verbose --no-folding --target=$$HOME --restow fzf
 	stow --verbose --no-folding --target=$$HOME --restow zellij
