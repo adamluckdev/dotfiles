@@ -3,37 +3,63 @@ set -eu
 
 SSH_CONFIG="${SSH_CONFIG:-$HOME/.ssh/config}"
 
-if ! command -v fzf >/dev/null 2>&1; then
-  echo "Error: fzf is not installed or not in PATH." >&2
-  exit 1
-fi
+need() { command -v "$1" >/dev/null 2>&1 || { echo "Error: missing $1" >&2; exit 1; }; }
+need fzf
+need awk
+need sort
 
-if [ ! -f "$SSH_CONFIG" ]; then
-  echo "Error: SSH config not found at: $SSH_CONFIG" >&2
-  exit 1
-fi
+[ -f "$SSH_CONFIG" ] || { echo "Error: SSH config not found: $SSH_CONFIG" >&2; exit 1; }
 
-hosts=$(
+# awk block entirely vibe-coded...
+tsv=$(
   awk '
     BEGIN { IGNORECASE=1 }
+
+    function is_concrete(h) { return (h != "*" && h !~ /[*?!]/) }
+    function local_port(spec, n, a) { n=split(spec,a,":"); return a[n] }
+
     /^[[:space:]]*Host[[:space:]]+/ {
+      block_n = 0
       for (i=2; i<=NF; i++) {
-        h=$i
-        if (h == "*") next
-        if (h ~ /[*?!]/) next
-        print h
+        if (is_concrete($i)) block_hosts[++block_n] = $i
       }
+      next
     }
-  ' "$SSH_CONFIG" | sort -u
+
+    /^[[:space:]]*LocalForward[[:space:]]+/ {
+      if (block_n == 0) next
+      lp = local_port($2)
+      rp = $3
+      if (rp == "") rp = "?"
+      pretty = lp " \xE2\x86\x92 " rp
+
+      for (j=1; j<=block_n; j++) {
+        h = block_hosts[j]
+        if (fw[h] == "") fw[h] = pretty
+        else fw[h] = fw[h] " | " pretty
+      }
+      next
+    }
+
+    END { for (h in fw) print h "\t" fw[h] }
+  ' "$SSH_CONFIG" | sort
 )
 
-if [ -z "$hosts" ]; then
-  echo "No concrete Host entries found in $SSH_CONFIG" >&2
-  exit 1
-fi
+[ -n "$tsv" ] || { echo "No Host entries with LocalForward found in $SSH_CONFIG" >&2; exit 1; }
 
-selected=$(printf "%s\n" "$hosts" | fzf --prompt="ssh> " --border)
+chosen=$(
+  printf "%s\n" "$tsv" \
+    | fzf --prompt="ssh-tunnel> " --border \
+          --delimiter "$(printf '\t')" --with-nth=1,2
+)
 
-[ -n "$selected" ] || exit 0
+[ -n "$chosen" ] || exit 0
 
-exec ssh "$selected"
+host=$(printf "%s" "$chosen" | awk -F '\t' '{print $1}')
+fwds=$(printf "%s" "$chosen" | awk -F '\t' '{print $2}')
+
+# Print info for the terminal (stderr so it doesn't pollute stdout if you ever pipe this script)
+echo "Connecting: $host" >&2
+echo "LocalForward: $fwds" >&2
+
+exec ssh "$host"
