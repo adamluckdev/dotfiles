@@ -1,0 +1,39 @@
+#!/bin/sh
+set -eu
+
+SSH_CONFIG="${SSH_CONFIG:-$HOME/.ssh/config}"
+
+if ! command -v fzf >/dev/null 2>&1; then
+  echo "Error: fzf is not installed or not in PATH." >&2
+  exit 1
+fi
+
+if [ ! -f "$SSH_CONFIG" ]; then
+  echo "Error: SSH config not found at: $SSH_CONFIG" >&2
+  exit 1
+fi
+
+hosts=$(
+  awk '
+    BEGIN { IGNORECASE=1 }
+    /^[[:space:]]*Host[[:space:]]+/ {
+      for (i=2; i<=NF; i++) {
+        h=$i
+        if (h == "*") next
+        if (h ~ /[*?!]/) next
+        print h
+      }
+    }
+  ' "$SSH_CONFIG" | sort -u
+)
+
+if [ -z "$hosts" ]; then
+  echo "No concrete Host entries found in $SSH_CONFIG" >&2
+  exit 1
+fi
+
+selected=$(printf "%s\n" "$hosts" | fzf --prompt="ssh> " --border)
+
+[ -n "$selected" ] || exit 0
+
+exec ssh "$selected"
