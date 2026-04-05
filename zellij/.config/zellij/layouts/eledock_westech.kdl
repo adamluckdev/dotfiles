@@ -9,10 +9,10 @@ layout {
             plugin location="zellij:status-bar"
         }
     }
-    tab name="php" cwd="/home/adam/Projects/eledock"
-    tab name="nodejs" cwd="/home/adam/Projects/eledock"
-    tab name="db" cwd="/home/adam/Projects/eledock"
-    tab name="sapp" cwd="/home/adam/Projects/www/sapp"
-    tab name="buyout" cwd="/home/adam/Projects/www/buyout"
-    tab name="vshosting" cwd="/home/adam/Projects/eledock"
+    tab name="php" cwd="$HOME/Projects/eledock"
+    tab name="nodejs" cwd="$HOME/Projects/eledock"
+    tab name="db" cwd="$HOME/Projects/eledock"
+    tab name="sapp" cwd="$HOME/Projects/www/sapp"
+    tab name="buyout" cwd="$HOME/Projects/www/buyout"
+    tab name="vshosting" cwd="$HOME/Projects/eledock"
 }

@@ -1,9 +1,15 @@
 #!/bin/sh
 
+OS="$(uname -s)"
+
 if [ $# -eq 1 ]; then
     selected=$1
 else
-    selected=$(find ~/.config/zellij/layouts -mindepth 1 -printf "%f\n" -type f | fzf)
+    if [ "$OS" = "Darwin" ]; then
+        selected=$(fd --type l --format {/} . "$HOME/.config/zellij/layouts" | fzf)
+    else
+        selected=$(find $HOME/.config/zellij/layouts -mindepth 1 -printf "%f\n" -type f | fzf)
+    fi
 fi
 
 if [ -z $selected ]; then

@@ -10,10 +10,10 @@ layout {
         }
     }
     tab name="general"
-    tab name="backend" cwd="/home/adam/Projects/gitlab_wdev/ecommerce/istores/backend"
-    tab name="import" cwd="/home/adam/Projects/gitlab_wdev/ecommerce/istores/backend"
-    tab name="cms" cwd="/home/adam/Projects/gitlab_wdev/ecommerce/istores/cms"
-    tab name="frontend" cwd="/home/adam/Projects/gitlab_wdev/ecommerce/istores/frontend"
-    tab name="db" cwd="/home/adam/Projects/gitlab_wdev/ecommerce/istores/backend"
-    tab name="tunnels" cwd="/home/adam/.ssh"
+    tab name="backend" cwd="$HOME/Projects/gitlab_wdev/ecommerce/istores/backend"
+    tab name="import" cwd="$HOME/Projects/gitlab_wdev/ecommerce/istores/backend"
+    tab name="cms" cwd="$HOME/Projects/gitlab_wdev/ecommerce/istores/cms"
+    tab name="frontend" cwd="$HOME/Projects/gitlab_wdev/ecommerce/istores/frontend"
+    tab name="db" cwd="$HOME/Projects/gitlab_wdev/ecommerce/istores/backend"
+    tab name="tunnels" cwd="$HOME/.ssh"
 }
